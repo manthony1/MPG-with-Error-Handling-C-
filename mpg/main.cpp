@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <cmath>
 #include <limits>
+#include <fstream>
 
 using namespace std;
 
@@ -111,6 +112,13 @@ int main()
 		mpg = round(mpg * 100) / 100;
 		cout << "Miles per gallon: " << mpg << endl << endl;
 
+
+		// write data to file
+		ofstream output_file;
+		output_file << fixed << setprecision(1);
+		output_file.open("trips.txt", ios::app); // open in append mode
+		output_file << "Miles: " << miles << "     " << "Gallons: " << gallons << "\n";
+		output_file.close();
 
 
 		// see if the user wants to enter more data
